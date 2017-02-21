@@ -61,7 +61,6 @@ class ViewController: UIViewController {
                 
                 var news: News = News()
                 news.title = $0["title"].stringValue
-                print(news.title)
                 news.author = $0["author"].stringValue
                 news.description = $0["description"].stringValue
                 news.publishedAt = $0["publishedAt"].stringValue
