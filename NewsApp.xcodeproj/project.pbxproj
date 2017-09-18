@@ -13,7 +13,7 @@
 		39760D4A1E52FFF500930882 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39760D491E52FFF500930882 /* TableViewCell.swift */; };
 		39760D4C1E53038A00930882 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39760D4B1E53038A00930882 /* News.swift */; };
 		39760D4E1E53050B00930882 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39760D4D1E53050B00930882 /* UIImageView+Extension.swift */; };
-		39760D511E53057400930882 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39760D501E53057400930882 /* SDWebImage.framework */; };
+		397F35B51F6EC42E00DA0EA1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397F35B41F6EC42E00DA0EA1 /* Kingfisher.framework */; };
 		39BF35FC1E2B3F9800B85F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BF35FB1E2B3F9800B85F11 /* AppDelegate.swift */; };
 		39BF35FE1E2B3F9800B85F11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BF35FD1E2B3F9800B85F11 /* ViewController.swift */; };
 		39BF36011E2B3F9800B85F11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BF35FF1E2B3F9800B85F11 /* Main.storyboard */; };
@@ -49,6 +49,7 @@
 		39760D4B1E53038A00930882 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		39760D4D1E53050B00930882 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		39760D501E53057400930882 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		397F35B41F6EC42E00DA0EA1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		39BF35F81E2B3F9800B85F11 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BF35FB1E2B3F9800B85F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39BF35FD1E2B3F9800B85F11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39760D511E53057400930882 /* SDWebImage.framework in Frameworks */,
+				397F35B51F6EC42E00DA0EA1 /* Kingfisher.framework in Frameworks */,
 				392D738D1E52FA8A00C8BE50 /* Alamofire.framework in Frameworks */,
 				392D738E1E52FA8A00C8BE50 /* SwiftyJSON.framework in Frameworks */,
 			);
@@ -96,6 +97,7 @@
 		392D738A1E52FA8A00C8BE50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				397F35B41F6EC42E00DA0EA1 /* Kingfisher.framework */,
 				39760D501E53057400930882 /* SDWebImage.framework */,
 				392D738B1E52FA8A00C8BE50 /* Alamofire.framework */,
 				392D738C1E52FA8A00C8BE50 /* SwiftyJSON.framework */,
@@ -318,7 +320,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputPaths = (
 			);
@@ -497,6 +499,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NewsApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tv.shinoki.NewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,6 +517,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NewsApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tv.shinoki.NewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

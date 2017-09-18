@@ -8,7 +8,7 @@
 
 import UIKit
 
-import SDWebImage
+import Kingfisher
 
 
 extension UIImageView {
@@ -19,6 +19,6 @@ extension UIImageView {
             
             return
         }
-        self.sd_setImage(with: url, placeholderImage: nil, options: [.cacheMemoryOnly])
+        self.kf.setImage(with: url)
     }
 }
