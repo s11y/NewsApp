@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - TableViewCell
 
-class TableViewCell: UITableViewCell {
+class CustomTableViewCell: UITableViewCell {
     
     
     // MARK: Internal

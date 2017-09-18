@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 import Alamofire
 import SwiftyJSON
@@ -15,7 +16,7 @@ import SwiftyJSON
 // MARK: - ViewController
 
 class ViewController: UIViewController {
-    
+
     
     // MARK: UIViewController
 
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         self.fetchNews { [weak self] news in
-            
+
             self?.news = news
             self?.tableView.reloadData()
         }
@@ -49,6 +50,7 @@ class ViewController: UIViewController {
     
     private func fetchNews(with completion: @escaping ([News]) -> Void) {
         
+        //
         Alamofire.request(Config.urlString + Config.apiKey).response { response in
             
             guard let data: Data = response.data else {
@@ -65,6 +67,7 @@ class ViewController: UIViewController {
                 news.description = $0["description"].stringValue
                 news.publishedAt = $0["publishedAt"].stringValue
                 news.thumbnailURLString = $0["urlToImage"].stringValue
+                news.urlString = $0["url"].stringValue
                 newsArray.append(news)
             })
             completion(newsArray)
@@ -84,7 +87,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell else {
+        guard let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.reuseIdentifier, for: indexPath) as? CustomTableViewCell else {
             
             return UITableViewCell()
         }
@@ -100,6 +103,16 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return TableViewCell.heightForRow
+        return CustomTableViewCell.heightForRow
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let url: URL = URL(string: news[indexPath.row].urlString) else {
+
+            return
+        }
+        let controllr: SFSafariViewController = SFSafariViewController(url: url)
+        self.present(controllr, animated: true, completion: nil)
     }
 }

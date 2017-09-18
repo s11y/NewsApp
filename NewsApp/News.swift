@@ -15,5 +15,6 @@ struct News {
     var description: String = ""
     var author: String = ""
     var thumbnailURLString: String = ""
+    var urlString: String = ""
     var publishedAt: String = ""
 }
